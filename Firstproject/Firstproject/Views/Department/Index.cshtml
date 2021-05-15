@@ -1,0 +1,21 @@
+﻿@using Firstproject.Models;
+
+@model IEnumerable<Department>
+    @{ 
+        ViewBag.Title = "Departments List";
+    }
+<div style="font-family:Arial">
+    <h2>
+        Department List
+    </h2>
+    <ul>
+        @foreach (Department department in @Model)
+        {
+        <li>
+            @Html.ActionLink(department.Name, "Index", "Student" ,new { @id = department.Id })
+        </li>
+        }
+    </ul>
+
+</div>
+
