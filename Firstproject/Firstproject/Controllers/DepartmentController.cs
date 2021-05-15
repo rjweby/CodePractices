@@ -14,7 +14,7 @@ namespace Firstproject.Controllers
         public ActionResult Index()
         {
             BadEntities studentcontext = new BadEntities();
-            List<Department> departments = studentcontext.departments.ToList();
+            List<Department> departments = studentcontext.Departments.ToList();
             return View(departments);
         }
     }
