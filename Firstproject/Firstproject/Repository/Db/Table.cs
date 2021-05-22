@@ -19,6 +19,6 @@ namespace Firstproject.Repository.Db
         public string Stream { get; set; }
         public string Gender { get; set; }
         public string City { get; set; }
-        public string Department_id { get; set; }
+        public Nullable<int> Department_id { get; set; }
     }
 }

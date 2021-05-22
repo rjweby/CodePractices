@@ -37,6 +37,12 @@ namespace Firstproject.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(Student student)
+        {
+            return View();
+        }
         [HttpGet]
 
         public ActionResult Details(int id)
@@ -54,8 +60,13 @@ namespace Firstproject.Controllers
 
             return View(student);
         }
+        public ActionResult GetStudents(int department)
+        {
+            BadEntities entities = new BadEntities();
+            var tables = entities.Tables.Where(t => t.Department_id == department).ToList();
+            return View(tables);
+        }
 
-       
-        
+
     }
 }
