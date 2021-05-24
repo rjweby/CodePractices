@@ -11,12 +11,11 @@ namespace Firstproject.Controllers
     public class DepartmentController : Controller
     {
         
-        public ActionResult Index(int DepartmentId)
+        public ActionResult Index()
         {
             BadEntities studentcontext = new BadEntities();
             List<Department> departments = studentcontext.Departments.ToList();
             return View(departments);
         }
-        
     }
 }
