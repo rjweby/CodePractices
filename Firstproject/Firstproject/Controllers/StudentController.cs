@@ -2,6 +2,7 @@
 using Firstproject.Repository.Db;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,7 +42,59 @@ namespace Firstproject.Controllers
         [HttpPost]
         public ActionResult Create(Student student)
         {
-            return View();
+            Table table = new Table();
+            table.Name = student.Name;
+            table.Id = student.Id;
+            table.Gender = student.Gender;
+            table.City = student.City;
+            table.Stream = student.Stream;
+            BadEntities entities = new BadEntities();
+            entities.Tables.Add(table);
+            entities.SaveChanges();
+
+
+
+            return Redirect("Index");
+                
+
+           
+
+        }
+
+        [HttpGet]
+
+        public ActionResult Edit(int id)
+        {
+            BadEntities entities = new BadEntities();
+            var table = entities.Tables.Where(t => t.Id == id);
+            return View(table);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                Table table = new Table();
+                table.Name = student.Name;
+                table.Id = student.Id;
+                table.Gender = student.Gender;
+                table.City = student.City;
+                table.Stream = student.Stream;
+                BadEntities entities = new BadEntities();
+                entities.Entry(table).State = EntityState.Modified;
+                entities.SaveChanges();
+
+
+
+                return RedirectToAction("Index");
+            }
+            
+                return View(student);
+            
+
+
+
         }
         [HttpGet]
 

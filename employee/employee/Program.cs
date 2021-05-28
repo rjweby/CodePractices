@@ -8,8 +8,9 @@ namespace employee
 {
     class Program
     {
-        static void Main(string[] args)
+        public string Index(string id)
         {
+            return "The value of id="+id;
         }
     }
 }
