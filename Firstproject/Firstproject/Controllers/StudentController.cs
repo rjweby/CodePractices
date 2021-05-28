@@ -66,12 +66,12 @@ namespace Firstproject.Controllers
         public ActionResult Edit(int id)
         {
             BadEntities entities = new BadEntities();
-            var table = entities.Tables.Where(t => t.Id == id);
+            var table = entities.Tables.Where(t => t.Id == id).FirstOrDefault();
             return View(table);
         }
 
         [HttpPost]
-        public ActionResult Edit(Student student)
+        public ActionResult Edit(int id,Student student)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +95,29 @@ namespace Firstproject.Controllers
 
 
 
+        }
+
+        [HttpGet]
+
+        public ActionResult Delete(int id)
+        {
+            BadEntities entities = new BadEntities();
+            return View(entities.Tables.Where(t => t.Id == id).FirstOrDefault());
+            
+        }
+
+        [HttpPost]
+
+        public ActionResult Delete(int id,Student student)
+        {
+            BadEntities entities = new BadEntities();
+            Table table = entities.Tables.Where(t => t.Id == id).FirstOrDefault();
+            entities.Tables.Remove(table);
+            entities.SaveChanges();
+
+
+
+            return RedirectToAction("Index");
         }
         [HttpGet]
 
