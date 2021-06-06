@@ -10,9 +10,16 @@ namespace Firstproject.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            //if (User.Identity.IsAuthenticated)
+            //{
+                return View();
+            //}
+            //else
+            //{
+            //   return Redirect("/User/Login");
+            //}
         }
-
+        [Route("/aboutdetail")]
         public ActionResult About()
         {
             ViewBag.Message = "First Project.";

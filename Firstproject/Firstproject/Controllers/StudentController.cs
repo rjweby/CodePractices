@@ -71,7 +71,7 @@ namespace Firstproject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int id,Student student)
+        public ActionResult Edit(int id, Table student)
         {
             if (ModelState.IsValid)
             {
