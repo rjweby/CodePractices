@@ -27,12 +27,16 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            
-            @Html.ActionLink(item.Name, "Details", new { @id = item.Id })
-        </td>
-        @*<td>
+<tr>
+    <td>
+
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+
+        @Html.DisplayFor(modelItem=>item.Name)
+    </td>
+    @*<td>
             @Html.DisplayFor(modelItem => item.Gender)
         </td>
         <td>
@@ -41,12 +45,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Stream)
         </td>*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>

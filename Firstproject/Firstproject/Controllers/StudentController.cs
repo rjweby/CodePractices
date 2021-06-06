@@ -112,7 +112,7 @@ namespace Firstproject.Controllers
         {
             BadEntities entities = new BadEntities();
             Table table = entities.Tables.Where(t => t.Id == id).FirstOrDefault();
-            entities.Tables.Remove(table);
+            entities.Tables.Remove(table); 
             entities.SaveChanges();
 
 
